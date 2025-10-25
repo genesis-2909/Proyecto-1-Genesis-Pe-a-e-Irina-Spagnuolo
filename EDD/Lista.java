@@ -9,8 +9,8 @@ package EDD;
  * Se implementa una lista enlazada simple para poder manejar los usuarios
  */
 public class Lista<T> {
-    private Nodo<T> pfirst;
-    private int size;
+    public Nodo<T> pfirst;
+    public int size;
 
     public Lista() {
         this.pfirst = null;
@@ -39,6 +39,14 @@ public class Lista<T> {
         aux.pnext = nuevo;
         }
     this.size++;
+    }
+    
+    /** Añade un elemento al inicio de la lista */
+    public void InsertarInicio (T dato){
+        Nodo<T> nuevo = new Nodo<>(dato);
+        nuevo.pnext = this.pfirst;
+        this.pfirst = nuevo;
+        this.size++;
     }
     
     /** Se obtiene un elemento en el numero que se le pase */
