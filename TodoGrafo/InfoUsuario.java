@@ -7,7 +7,6 @@ import EDD.Lista;
 
 /**
  *
- * @author Gerardo Bloise
  */
 public class InfoUsuario {
     public String nombre;
@@ -17,7 +16,5 @@ public class InfoUsuario {
     public InfoUsuario(String nombre) {
         this.nombre = nombre;
         this.conexion = new Lista<>();
-    }
-    
-    
+    } 
 }

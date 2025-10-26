@@ -7,7 +7,6 @@ import EDD.Nodo;
 
 /**
  *
- * @author Gerardo Bloise
  */
 public class Grafo {
     private InfoUsuario[] users;
@@ -22,9 +21,26 @@ public class Grafo {
     //busca el usuario del que se quiere saber
     public InfoUsuario searchUser(String nombre){
         for (int i = 0; i < getCantidad(); i++) {
-            
+            if (getUsers()[i].nombre.equals(nombre)) return getUsers()[i];
+        }return null;
+    }
+    
+    //agrega usuarios
+    public void addUsers(String nombre){
+        if (searchUser(nombre) == null) {
+            getUsers()[cantidad++] = new InfoUsuario(nombre);
         }
     }
+    
+    //aqui se agrega la relacion que tiene un usuario con otro
+    public void addConexion(String persona, String relacionado){
+        InfoUsuario user = searchUser(persona);
+        if (user != null){
+            user.conexion.InsertarFinal(relacionado);
+        }
+    }
+    
+    //getters
 
     /**
      * @return the users
