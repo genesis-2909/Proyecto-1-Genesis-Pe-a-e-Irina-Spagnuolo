@@ -33,10 +33,10 @@ public class Lista<T> {
             this.pfirst = nuevo;
         }else{
             Nodo<T> aux = this.pfirst;
-            while (aux.pnext != null){
-                aux = aux.pnext;
+            while (aux.getPnext() != null){
+                aux = aux.getPnext();
             }
-        aux.pnext = nuevo;
+            aux.setPnext(nuevo);
         }
     this.size++;
     }
@@ -44,7 +44,7 @@ public class Lista<T> {
     /** Añade un elemento al inicio de la lista */
     public void InsertarInicio (T dato){
         Nodo<T> nuevo = new Nodo<>(dato);
-        nuevo.pnext = this.pfirst;
+        nuevo.setPnext(this.pfirst);
         this.pfirst = nuevo;
         this.size++;
     }
@@ -56,9 +56,9 @@ public class Lista<T> {
         }
         Nodo<T> aux = this.pfirst;
         for (int i = 0; i < indice; i++) {
-            aux = aux.pnext;
+            aux = aux.getPnext();
             }
-        return aux.dato;
+        return aux.getDato();
         }
     
     /** Se elimina un elemento en el indice que se indica */
@@ -68,16 +68,16 @@ public class Lista<T> {
         }
         T dato;
         if (indice == 0){
-            dato = this.pfirst.dato;
-            this.pfirst = this.pfirst.pnext;
+            dato = this.pfirst.getDato();
+            this.pfirst = this.pfirst.getPnext();
         }else{
             Nodo<T> aux = this.pfirst;
             for (int i = 0; i < indice - 1; i++) {
-                aux = aux.pnext;
+                aux = aux.getPnext();
             }
-        Nodo<T> nodoaeliminar = aux.pnext;
-         dato = nodoaeliminar.dato;
-        aux.pnext = nodoaeliminar.pnext;
+        Nodo<T> nodoaeliminar = aux.getPnext();
+         dato = nodoaeliminar.getDato();
+        aux.setPnext(nodoaeliminar.getPnext());
         }
     this.size--;
     return dato;
@@ -88,10 +88,10 @@ public class Lista<T> {
     public int indice(T dato){
         Nodo<T> aux = this.pfirst;
         for (int i = 0; i < this.size; i++) {
-            if (aux.dato.equals(dato)){
+            if (aux.getDato().equals(dato)){
                 return i;
             }
-        aux = aux.pnext;
+        aux = aux.getPnext();
         }
     return -1;
     }    

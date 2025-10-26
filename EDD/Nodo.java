@@ -10,11 +10,41 @@ package EDD;
  *
  */
 public class Nodo<T> {
-    Nodo<T> pnext;
-    T dato;
+    private Nodo<T> pnext;
+    private T dato;
 
     public Nodo(T dato) {
         this.pnext = null;
         this.dato = dato;
-    }  
+    }
+
+    /**
+     * @return the pnext
+     */
+    public Nodo<T> getPnext() {
+        return pnext;
+    }
+
+    /**
+     * @param pnext the pnext to set
+     */
+    public void setPnext(Nodo<T> pnext) {
+        this.pnext = pnext;
+    }
+
+    /**
+     * @return the dato
+     */
+    public T getDato() {
+        return dato;
+    }
+
+    /**
+     * @param dato the dato to set
+     */
+    public void setDato(T dato) {
+        this.dato = dato;
+    }
+    
+    
 }
